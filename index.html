@@ -8,62 +8,130 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .tab-btn {
+                font-size: 0.875rem;
+                padding: 0.75rem 0.5rem !important;
+            }
+            
+            h1 {
+                font-size: 1.5rem !important;
+                line-height: 1.3;
+            }
+            
+            h2 {
+                font-size: 1.25rem !important;
+            }
+            
+            h3 {
+                font-size: 1.1rem !important;
+            }
+            
+            .text-4xl {
+                font-size: 1.75rem !important;
+            }
+            
+            .text-3xl {
+                font-size: 1.5rem !important;
+            }
+            
+            .text-2xl {
+                font-size: 1.25rem !important;
+            }
+            
+            .text-xl {
+                font-size: 1rem !important;
+            }
+            
+            .p-8 {
+                padding: 1rem !important;
+            }
+            
+            .p-6 {
+                padding: 0.875rem !important;
+            }
+            
+            .gap-8 {
+                gap: 1rem !important;
+            }
+            
+            .gap-6 {
+                gap: 0.75rem !important;
+            }
+            
+            canvas {
+                max-height: 250px !important;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .min-h-screen {
+                padding: 0.5rem !important;
+            }
+            
+            .tab-btn {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.25rem !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-50 to-blue-50">
-    <div class="min-h-screen p-6">
+    <div class="min-h-screen p-2 sm:p-4 md:p-6">
         <div class="max-w-7xl mx-auto">
             <!-- Header -->
-            <div class="bg-white rounded-2xl shadow-xl p-8 mb-6 border-t-4 border-blue-600">
+            <div class="bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 border-t-4 border-blue-600">
                 <div class="flex flex-col md:flex-row justify-between items-start gap-4">
-                    <div>
-                        <h1 class="text-4xl font-bold text-gray-900 mb-2">Dubai Real Estate Marketing Strategy</h1>
-                        <p class="text-xl text-gray-600">Data-Driven Growth Plan | 2025</p>
-                        <p class="text-sm text-gray-500 mt-1">Strategy created by Omid</p>
+                    <div class="w-full md:w-auto">
+                        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">Dubai Real Estate Marketing Strategy</h1>
+                        <p class="text-base sm:text-lg md:text-xl text-gray-600">Data-Driven Growth Plan | 2025</p>
+                        <p class="text-xs sm:text-sm text-gray-500 mt-1">Strategy created by Omid</p>
                     </div>
-                    <div class="text-right">
-                        <div class="text-3xl font-bold text-blue-600">AED 142B</div>
-                        <div class="text-sm text-gray-600">Market Size (Q3 2024)</div>
+                    <div class="text-left md:text-right w-full md:w-auto">
+                        <div class="text-2xl sm:text-3xl font-bold text-blue-600">AED 142B</div>
+                        <div class="text-xs sm:text-sm text-gray-600">Market Size (Q3 2024)</div>
                     </div>
                 </div>
             </div>
 
             <!-- Tabs -->
-            <div class="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
+            <div class="bg-white rounded-xl shadow-lg mb-4 sm:mb-6 overflow-hidden">
                 <div class="flex flex-wrap border-b">
-                    <button onclick="showTab('overview')" id="tab-overview" class="tab-btn flex-1 py-4 px-6 font-semibold bg-blue-600 text-white">Overview</button>
-                    <button onclick="showTab('strategy')" id="tab-strategy" class="tab-btn flex-1 py-4 px-6 font-semibold bg-white text-gray-600 hover:bg-gray-50">Strategy</button>
-                    <button onclick="showTab('budget')" id="tab-budget" class="tab-btn flex-1 py-4 px-6 font-semibold bg-white text-gray-600 hover:bg-gray-50">Budget</button>
-                    <button onclick="showTab('timeline')" id="tab-timeline" class="tab-btn flex-1 py-4 px-6 font-semibold bg-white text-gray-600 hover:bg-gray-50">Timeline</button>
+                    <button onclick="showTab('overview')" id="tab-overview" class="tab-btn flex-1 py-3 px-2 sm:py-4 sm:px-4 md:px-6 text-sm sm:text-base font-semibold bg-blue-600 text-white">Overview</button>
+                    <button onclick="showTab('strategy')" id="tab-strategy" class="tab-btn flex-1 py-3 px-2 sm:py-4 sm:px-4 md:px-6 text-sm sm:text-base font-semibold bg-white text-gray-600 hover:bg-gray-50">Strategy</button>
+                    <button onclick="showTab('budget')" id="tab-budget" class="tab-btn flex-1 py-3 px-2 sm:py-4 sm:px-4 md:px-6 text-sm sm:text-base font-semibold bg-white text-gray-600 hover:bg-gray-50">Budget</button>
+                    <button onclick="showTab('timeline')" id="tab-timeline" class="tab-btn flex-1 py-3 px-2 sm:py-4 sm:px-4 md:px-6 text-sm sm:text-base font-semibold bg-white text-gray-600 hover:bg-gray-50">Timeline</button>
                 </div>
             </div>
 
             <!-- Overview Tab -->
             <div id="content-overview" class="tab-content">
                 <!-- Key Metrics -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
-                        <div class="text-sm font-medium text-gray-600 mb-2">Q3 2024 Transactions</div>
-                        <div class="text-3xl font-bold text-gray-900">50,425<span class="text-lg text-gray-600 ml-1">deals</span></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 border-l-4 border-blue-500">
+                        <div class="text-xs sm:text-sm font-medium text-gray-600 mb-2">Q3 2024 Transactions</div>
+                        <div class="text-2xl sm:text-3xl font-bold text-gray-900">50,425<span class="text-base sm:text-lg text-gray-600 ml-1">deals</span></div>
                     </div>
-                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500">
-                        <div class="text-sm font-medium text-gray-600 mb-2">Transaction Value</div>
-                        <div class="text-3xl font-bold text-gray-900">141.95<span class="text-lg text-gray-600 ml-1">Billion AED</span></div>
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 border-l-4 border-green-500">
+                        <div class="text-xs sm:text-sm font-medium text-gray-600 mb-2">Transaction Value</div>
+                        <div class="text-2xl sm:text-3xl font-bold text-gray-900">141.95<span class="text-base sm:text-lg text-gray-600 ml-1">Billion AED</span></div>
                     </div>
-                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-500">
-                        <div class="text-sm font-medium text-gray-600 mb-2">Qualified Lead Rate</div>
-                        <div class="text-3xl font-bold text-gray-900">5<span class="text-lg text-gray-600 ml-1">%</span></div>
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 border-l-4 border-yellow-500">
+                        <div class="text-xs sm:text-sm font-medium text-gray-600 mb-2">Qualified Lead Rate</div>
+                        <div class="text-2xl sm:text-3xl font-bold text-gray-900">5<span class="text-base sm:text-lg text-gray-600 ml-1">%</span></div>
                     </div>
-                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-500">
-                        <div class="text-sm font-medium text-gray-600 mb-2">Bayut Monthly Visits</div>
-                        <div class="text-3xl font-bold text-gray-900">3.36<span class="text-lg text-gray-600 ml-1">Million</span></div>
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 border-l-4 border-red-500">
+                        <div class="text-xs sm:text-sm font-medium text-gray-600 mb-2">Bayut Monthly Visits</div>
+                        <div class="text-2xl sm:text-3xl font-bold text-gray-900">3.36<span class="text-base sm:text-lg text-gray-600 ml-1">Million</span></div>
                     </div>
                 </div>
 
                 <!-- Market Challenge -->
-                <div class="bg-white rounded-xl shadow-lg p-8 mb-6">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Market Opportunity & Challenge</h2>
-                    <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Market Opportunity & Challenge</h2>
+                    <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
                         <div>
                             <h3 class="text-lg font-semibold mb-4 text-gray-700">The Challenge</h3>
                             <div class="space-y-4">
@@ -106,21 +174,21 @@
                 </div>
 
                 <!-- Growth Chart -->
-                <div class="bg-white rounded-xl shadow-lg p-8 mb-6">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">12-Month Growth Projection</h2>
+                <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">12-Month Growth Projection</h2>
                     <canvas id="growthChart" class="w-full" height="100"></canvas>
-                    <div class="grid grid-cols-3 gap-4 mt-6">
-                        <div class="bg-blue-50 p-4 rounded-lg text-center">
-                            <div class="text-2xl font-bold text-blue-600">650</div>
-                            <div class="text-sm text-gray-600">Leads/Month (Year 1)</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-4 sm:mt-6">
+                        <div class="bg-blue-50 p-3 sm:p-4 rounded-lg text-center">
+                            <div class="text-xl sm:text-2xl font-bold text-blue-600">650</div>
+                            <div class="text-xs sm:text-sm text-gray-600">Leads/Month (Year 1)</div>
                         </div>
-                        <div class="bg-green-50 p-4 rounded-lg text-center">
-                            <div class="text-2xl font-bold text-green-600">10,000</div>
-                            <div class="text-sm text-gray-600">Instagram Followers</div>
+                        <div class="bg-green-50 p-3 sm:p-4 rounded-lg text-center">
+                            <div class="text-xl sm:text-2xl font-bold text-green-600">10,000</div>
+                            <div class="text-xs sm:text-sm text-gray-600">Instagram Followers</div>
                         </div>
-                        <div class="bg-purple-50 p-4 rounded-lg text-center">
-                            <div class="text-2xl font-bold text-purple-600">867%</div>
-                            <div class="text-sm text-gray-600">Lead Growth Rate</div>
+                        <div class="bg-purple-50 p-3 sm:p-4 rounded-lg text-center">
+                            <div class="text-xl sm:text-2xl font-bold text-purple-600">867%</div>
+                            <div class="text-xs sm:text-sm text-gray-600">Lead Growth Rate</div>
                         </div>
                     </div>
                 </div>
@@ -129,10 +197,10 @@
             <!-- Strategy Tab -->
             <div id="content-strategy" class="tab-content hidden">
                 <!-- Two Phase Approach -->
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <div class="bg-gradient-to-br from-orange-500 to-red-500 rounded-xl shadow-lg p-8 text-white">
-                        <h2 class="text-2xl font-bold mb-4">🚀 Short-Term (0-3 Months)</h2>
-                        <p class="text-orange-100 mb-6">Quick wins with minimal budget</p>
+                <div class="grid md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+                    <div class="bg-gradient-to-br from-orange-500 to-red-500 rounded-xl shadow-lg p-6 sm:p-8 text-white">
+                        <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">🚀 Short-Term (0-3 Months)</h2>
+                        <p class="text-orange-100 mb-4 sm:mb-6 text-sm sm:text-base">Quick wins with minimal budget</p>
                         <div class="space-y-3">
                             <div class="bg-white/20 backdrop-blur rounded-lg p-3">
                                 <div class="font-bold">Agent Network Leverage</div>
@@ -153,9 +221,9 @@
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl shadow-lg p-8 text-white">
-                        <h2 class="text-2xl font-bold mb-4">🎯 Long-Term (3-12 Months)</h2>
-                        <p class="text-blue-100 mb-6">Sustainable growth engine</p>
+                    <div class="bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl shadow-lg p-6 sm:p-8 text-white">
+                        <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">🎯 Long-Term (3-12 Months)</h2>
+                        <p class="text-blue-100 mb-4 sm:mb-6 text-sm sm:text-base">Sustainable growth engine</p>
                         <div class="space-y-3">
                             <div class="bg-white/20 backdrop-blur rounded-lg p-3">
                                 <div class="font-bold">SEO & Content Marketing</div>
@@ -178,15 +246,15 @@
                 </div>
 
                 <!-- Channel Performance -->
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Lead Distribution & Cost Per Lead by Channel</h2>
-                    <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8">
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Lead Distribution & Cost Per Lead by Channel</h2>
+                    <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
                         <div>
-                            <h3 class="text-center font-semibold mb-4">Lead Distribution</h3>
+                            <h3 class="text-center font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Lead Distribution</h3>
                             <canvas id="channelPieChart"></canvas>
                         </div>
                         <div>
-                            <h3 class="text-center font-semibold mb-4">Cost Per Lead (AED)</h3>
+                            <h3 class="text-center font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Cost Per Lead (AED)</h3>
                             <canvas id="cplChart"></canvas>
                         </div>
                     </div>
@@ -195,15 +263,15 @@
 
             <!-- Budget Tab -->
             <div id="content-budget" class="tab-content hidden">
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Monthly Budget Allocation</h2>
+                <div class="grid md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8">
+                        <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Monthly Budget Allocation</h2>
                         <canvas id="budgetPieChart"></canvas>
                     </div>
 
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Budget Breakdown</h2>
-                        <div class="space-y-4">
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8">
+                        <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Budget Breakdown</h2>
+                        <div class="space-y-3 sm:space-y-4">
                             <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                                 <div class="flex items-center gap-3">
                                     <div class="w-4 h-4 rounded bg-blue-500"></div>
@@ -251,9 +319,9 @@
                 </div>
 
                 <!-- Paid Ads Details -->
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Paid Advertising Breakdown (AED 900/month)</h2>
-                    <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8">
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Paid Advertising Breakdown (AED 900/month)</h2>
+                    <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
                         <div class="border-2 border-blue-500 rounded-lg p-6">
                             <h3 class="font-bold text-xl mb-4 text-blue-600">Meta Ads (AED 450)</h3>
                             <div class="space-y-3">
@@ -305,93 +373,93 @@
 
             <!-- Timeline Tab -->
             <div id="content-timeline" class="tab-content hidden">
-                <div class="space-y-4">
-                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
-                        <h3 class="text-xl font-bold mb-4">Week 1-2: Foundation</h3>
-                        <div class="grid md:grid-cols-2 gap-3">
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-blue-500 mt-2"></div><span class="text-sm">Team kickoff + role assignment</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-blue-500 mt-2"></div><span class="text-sm">Audit agent Instagram accounts</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-blue-500 mt-2"></div><span class="text-sm">Set up Google Business Profile</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-blue-500 mt-2"></div><span class="text-sm">Install tracking pixels</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-blue-500 mt-2"></div><span class="text-sm">Create brand templates library</span></div>
+                <div class="space-y-3 sm:space-y-4">
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 border-l-4 border-blue-500">
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Week 1-2: Foundation</h3>
+                        <div class="grid md:grid-cols-2 gap-2 sm:gap-3">
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Team kickoff + role assignment</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Audit agent Instagram accounts</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Set up Google Business Profile</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Install tracking pixels</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Create brand templates library</span></div>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500">
-                        <h3 class="text-xl font-bold mb-4">Week 3-4: Launch</h3>
-                        <div class="grid md:grid-cols-2 gap-3">
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-green-500 mt-2"></div><span class="text-sm">Launch 3 landing pages</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-green-500 mt-2"></div><span class="text-sm">Set up automation</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-green-500 mt-2"></div><span class="text-sm">Start daily Instagram posting</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-green-500 mt-2"></div><span class="text-sm">Begin Google Ads (AED 50/day)</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-green-500 mt-2"></div><span class="text-sm">Optimize Property Finder listings</span></div>
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 border-l-4 border-green-500">
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Week 3-4: Launch</h3>
+                        <div class="grid md:grid-cols-2 gap-2 sm:gap-3">
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Launch 3 landing pages</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Set up automation</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Start daily Instagram posting</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Begin Google Ads (AED 50/day)</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Optimize Property Finder listings</span></div>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-500">
-                        <h3 class="text-xl font-bold mb-4">Month 2-3: Optimize</h3>
-                        <div class="grid md:grid-cols-2 gap-3">
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2"></div><span class="text-sm">Launch Meta Ads campaigns</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2"></div><span class="text-sm">Build n8n lead distribution</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2"></div><span class="text-sm">A/B test landing pages</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2"></div><span class="text-sm">Partner with micro-influencers</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2"></div><span class="text-sm">Start blog content (2 posts/week)</span></div>
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 border-l-4 border-purple-500">
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Month 2-3: Optimize</h3>
+                        <div class="grid md:grid-cols-2 gap-2 sm:gap-3">
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Launch Meta Ads campaigns</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Build n8n lead distribution</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">A/B test landing pages</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Partner with micro-influencers</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Start blog content (2 posts/week)</span></div>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-orange-500">
-                        <h3 class="text-xl font-bold mb-4">Month 4-6: Scale</h3>
-                        <div class="grid md:grid-cols-2 gap-3">
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-orange-500 mt-2"></div><span class="text-sm">Deploy AI chatbot on website</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-orange-500 mt-2"></div><span class="text-sm">Complete 5 n8n workflows</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-orange-500 mt-2"></div><span class="text-sm">Launch YouTube channel</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-orange-500 mt-2"></div><span class="text-sm">Host first property webinar</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-orange-500 mt-2"></div><span class="text-sm">Achieve 3,000+ followers</span></div>
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 border-l-4 border-orange-500">
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Month 4-6: Scale</h3>
+                        <div class="grid md:grid-cols-2 gap-2 sm:gap-3">
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Deploy AI chatbot on website</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Complete 5 n8n workflows</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Launch YouTube channel</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Host first property webinar</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Achieve 3,000+ followers</span></div>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-500">
-                        <h3 class="text-xl font-bold mb-4">Month 7-12: Market Leadership</h3>
-                        <div class="grid md:grid-cols-2 gap-3">
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-red-500 mt-2"></div><span class="text-sm">Rank for 20+ SEO keywords</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-red-500 mt-2"></div><span class="text-sm">Generate 500+ leads/month</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-red-500 mt-2"></div><span class="text-sm">Build WhatsApp community (1,000+)</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-red-500 mt-2"></div><span class="text-sm">VR/AR property tours</span></div>
-                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-red-500 mt-2"></div><span class="text-sm">Position as market authority</span></div>
+                    <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 border-l-4 border-red-500">
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Month 7-12: Market Leadership</h3>
+                        <div class="grid md:grid-cols-2 gap-2 sm:gap-3">
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Rank for 20+ SEO keywords</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Generate 500+ leads/month</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Build WhatsApp community (1,000+)</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">VR/AR property tours</span></div>
+                            <div class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div><span class="text-xs sm:text-sm">Position as market authority</span></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Milestones -->
-                <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg p-8 text-white mt-6">
-                    <h2 class="text-2xl font-bold mb-6">Success Milestones</h2>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="bg-white/20 backdrop-blur rounded-lg p-4">
-                            <div class="text-4xl font-bold mb-2">Month 1</div>
-                            <div class="text-sm opacity-90">✓ 500-800 followers</div>
-                            <div class="text-sm opacity-90">✓ 50-100 leads</div>
-                            <div class="text-sm opacity-90">✓ All automations live</div>
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg p-6 sm:p-8 text-white mt-4 sm:mt-6">
+                    <h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Success Milestones</h2>
+                    <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
+                        <div class="bg-white/20 backdrop-blur rounded-lg p-3 sm:p-4">
+                            <div class="text-3xl sm:text-4xl font-bold mb-2">Month 1</div>
+                            <div class="text-xs sm:text-sm opacity-90">✓ 500-800 followers</div>
+                            <div class="text-xs sm:text-sm opacity-90">✓ 50-100 leads</div>
+                            <div class="text-xs sm:text-sm opacity-90">✓ All automations live</div>
                         </div>
-                        <div class="bg-white/20 backdrop-blur rounded-lg p-4">
-                            <div class="text-4xl font-bold mb-2">Month 6</div>
-                            <div class="text-sm opacity-90">✓ 4,000+ followers</div>
-                            <div class="text-sm opacity-90">✓ 300-500 leads/mo</div>
-                            <div class="text-sm opacity-90">✓ Positive ROI from ads</div>
+                        <div class="bg-white/20 backdrop-blur rounded-lg p-3 sm:p-4">
+                            <div class="text-3xl sm:text-4xl font-bold mb-2">Month 6</div>
+                            <div class="text-xs sm:text-sm opacity-90">✓ 4,000+ followers</div>
+                            <div class="text-xs sm:text-sm opacity-90">✓ 300-500 leads/mo</div>
+                            <div class="text-xs sm:text-sm opacity-90">✓ Positive ROI from ads</div>
                         </div>
-                        <div class="bg-white/20 backdrop-blur rounded-lg p-4">
-                            <div class="text-4xl font-bold mb-2">Month 12</div>
-                            <div class="text-sm opacity-90">✓ 10,000+ followers</div>
-                            <div class="text-sm opacity-90">✓ 650+ leads/mo</div>
-                            <div class="text-sm opacity-90">✓ Market leadership</div>
+                        <div class="bg-white/20 backdrop-blur rounded-lg p-3 sm:p-4">
+                            <div class="text-3xl sm:text-4xl font-bold mb-2">Month 12</div>
+                            <div class="text-xs sm:text-sm opacity-90">✓ 10,000+ followers</div>
+                            <div class="text-xs sm:text-sm opacity-90">✓ 650+ leads/mo</div>
+                            <div class="text-xs sm:text-sm opacity-90">✓ Market leadership</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Footer -->
-            <div class="bg-gray-900 text-white rounded-xl shadow-lg p-6 mt-6">
+            <div class="bg-gray-900 text-white rounded-xl shadow-lg p-4 sm:p-6 mt-4 sm:mt-6">
                 <div class="text-center">
-                    <div class="text-sm text-gray-400">Dubai Real Estate Marketing Strategy 2025</div>
+                    <div class="text-xs sm:text-sm text-gray-400">Dubai Real Estate Marketing Strategy 2025</div>
                     <div class="text-xs text-gray-500 mt-1">Data-driven plan for sustainable growth | Strategy created by Omid</div>
                 </div>
             </div>
@@ -441,17 +509,55 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: window.innerWidth < 640 ? 10 : 12
+                            }
+                        }
+                    }
+                },
                 scales: {
                     y: {
                         beginAtZero: true,
                         position: 'left',
-                        title: { display: true, text: 'Leads' }
+                        title: { 
+                            display: true, 
+                            text: 'Leads',
+                            font: {
+                                size: window.innerWidth < 640 ? 10 : 12
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                size: window.innerWidth < 640 ? 9 : 11
+                            }
+                        }
                     },
                     y1: {
                         beginAtZero: true,
                         position: 'right',
                         grid: { drawOnChartArea: false },
-                        title: { display: true, text: 'Followers' }
+                        title: { 
+                            display: true, 
+                            text: 'Followers',
+                            font: {
+                                size: window.innerWidth < 640 ? 10 : 12
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                size: window.innerWidth < 640 ? 9 : 11
+                            }
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            font: {
+                                size: window.innerWidth < 640 ? 9 : 11
+                            }
+                        }
                     }
                 }
             }
@@ -472,7 +578,15 @@
                 responsive: true,
                 maintainAspectRatio: true,
                 plugins: {
-                    legend: { position: 'bottom' }
+                    legend: { 
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: window.innerWidth < 640 ? 9 : 11
+                            },
+                            padding: window.innerWidth < 640 ? 8 : 10
+                        }
+                    }
                 }
             }
         });
@@ -492,8 +606,31 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: window.innerWidth < 640 ? 10 : 12
+                            }
+                        }
+                    }
+                },
                 scales: {
-                    y: { beginAtZero: true }
+                    y: { 
+                        beginAtZero: true,
+                        ticks: {
+                            font: {
+                                size: window.innerWidth < 640 ? 9 : 11
+                            }
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            font: {
+                                size: window.innerWidth < 640 ? 8 : 10
+                            }
+                        }
+                    }
                 }
             }
         });
@@ -513,7 +650,15 @@
                 responsive: true,
                 maintainAspectRatio: true,
                 plugins: {
-                    legend: { position: 'bottom' },
+                    legend: { 
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: window.innerWidth < 640 ? 9 : 11
+                            },
+                            padding: window.innerWidth < 640 ? 8 : 10
+                        }
+                    },
                     tooltip: {
                         callbacks: {
                             label: function(context) {
